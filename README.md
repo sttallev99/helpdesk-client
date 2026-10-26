@@ -53,6 +53,19 @@ src/app/
 
 Live at **https://wonderful-coast-071eafc0f.3.azurestaticapps.net** (Azure Static Web Apps, Free plan).
 
+### Demo accounts
+
+Shared demo logins for the live site - anyone with this README can use them, so don't put anything private in their tickets.
+
+| Role | Email | Password |
+|---|---|---|
+| Customer | `customer@helpdesk.app` | `Customer123!` |
+| Agent | `agent@helpdesk.app` | `Agent1234!` |
+
+Try both sides: raise a ticket as the customer, then log in as the agent to claim it, reply or add an internal note, and change its status. You can also register your own customer account. The admin account isn't shared.
+
+The first request after a quiet period can take 30-60 seconds while the free-tier API and database wake up.
+
 - `npm run build` is a production build: `angular.json` swaps in `src/environments/environment.prod.ts`, which points `apiBaseUrl` at the API on Azure App Service (`https://helpdesk-api-sttallev99.azurewebsites.net/api/v1`). The API allows this site's origin through its `Cors:AllowedOrigins` setting.
 - `public/staticwebapp.config.json` rewrites unknown paths to `index.html`, so deep links like `/tickets/<id>` work.
 - `.github/workflows/deploy.yml` builds and uploads `dist/helpdesk-client/browser` on every push to `main`, using the `AZURE_STATIC_WEB_APPS_API_TOKEN` repository secret.
