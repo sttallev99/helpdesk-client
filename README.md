@@ -49,6 +49,11 @@ src/app/
   pages/   login, register, ticket-list, ticket-new, ticket-detail, admin
 ```
 
-## Production
+## Deployment
 
-`npm run build` outputs static files to `dist/helpdesk-client/browser`. Serve them from the same origin as the API (or behind a reverse proxy that routes `/api` to it); otherwise you'd need to add a CORS policy to the API and set `apiBaseUrl` to the API's absolute URL.
+Live at **https://wonderful-coast-071eafc0f.3.azurestaticapps.net** (Azure Static Web Apps, Free plan).
+
+- `npm run build` is a production build: `angular.json` swaps in `src/environments/environment.prod.ts`, which points `apiBaseUrl` at the API on Azure App Service (`https://helpdesk-api-sttallev99.azurewebsites.net/api/v1`). The API allows this site's origin through its `Cors:AllowedOrigins` setting.
+- `public/staticwebapp.config.json` rewrites unknown paths to `index.html`, so deep links like `/tickets/<id>` work.
+- `.github/workflows/deploy.yml` builds and uploads `dist/helpdesk-client/browser` on every push to `main`, using the `AZURE_STATIC_WEB_APPS_API_TOKEN` repository secret.
+- If the API moves, update `environment.prod.ts` and the API's `Cors__AllowedOrigins__0` app setting together.
