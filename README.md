@@ -1,6 +1,6 @@
 # HelpDesk Client (Angular)
 
-Angular 19 front end for the HelpDesk API in [`../SupportTicketSystem`](../SupportTicketSystem).
+Angular 19 front end for the [HelpDesk API](https://github.com/sttallev99/helpdesk-api).
 
 ## How it connects to the API
 
@@ -12,6 +12,14 @@ Angular 19 front end for the HelpDesk API in [`../SupportTicketSystem`](../Suppo
 ## Running
 
 Prerequisites: Node 20.11+ and the API set up per its README (user secrets, LocalDB).
+
+`npm run api` expects the API checked out next to this folder as `SupportTicketSystem`:
+
+```bash
+git clone https://github.com/sttallev99/helpdesk-api.git SupportTicketSystem
+git clone https://github.com/sttallev99/helpdesk-client.git
+cd helpdesk-client
+```
 
 ```bash
 npm install
