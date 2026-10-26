@@ -1,0 +1,42 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+
+  a {
+    color: var(--muted);
+    text-decoration: none;
+
+    &.active,
+    &:hover {
+      color: var(--text);
+    }
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  small {
+    color: var(--muted);
+  }
+}

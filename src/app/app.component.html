@@ -1,0 +1,28 @@
+<header class="topbar">
+  <a class="brand" routerLink="/">HelpDesk</a>
+
+  @if (auth.user(); as user) {
+    <nav>
+      <a routerLink="/tickets" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tickets</a>
+      @if (auth.isCustomer()) {
+        <a routerLink="/tickets/new" routerLinkActive="active">New ticket</a>
+      }
+      @if (auth.isAdmin()) {
+        <a routerLink="/admin" routerLinkActive="active">Admin</a>
+      }
+    </nav>
+    <div class="user">
+      <span>{{ user.fullName }} <small>({{ user.roles.join(', ') }})</small></span>
+      <button class="btn-secondary" type="button" (click)="auth.logout()">Log out</button>
+    </div>
+  } @else {
+    <nav>
+      <a routerLink="/login" routerLinkActive="active">Log in</a>
+      <a routerLink="/register" routerLinkActive="active">Register</a>
+    </nav>
+  }
+</header>
+
+<main class="container">
+  <router-outlet />
+</main>
